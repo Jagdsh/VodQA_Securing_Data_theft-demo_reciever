@@ -9,9 +9,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/analytics-data', function(req, res, next) {
   	output = decode(req.body['data']);
+  	console.log(req.get('Content-MD5'));
   	res.header("Access-Control-Allow-Origin", "*");
   	res.header('Access-Control-Allow-Methods', 'POST');
-  	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  	res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 	console.log(output);
 
